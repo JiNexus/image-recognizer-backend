@@ -1,0 +1,16 @@
+/.env
+/.idea
+/.phpcs-cache
+/.phpunit
+/.phpunit.result.cache
+/.vagrant
+/.vscode
+/clover.xml
+/composer.phar
+/config/autoload/*local.php
+/config/development.config.php
+/coveralls-upload.json
+/data/cache/*
+!/data/cache/.gitkeep
+/phpunit.xml
+/vendor/
