@@ -72,11 +72,13 @@
     },
     "autoload": {
         "psr-4": {
+            "Api\\": "src/Api/src/",
             "App\\": "src/App/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
+            "ApiTest\\": "test/ApiTest/",
             "AppTest\\": "test/AppTest/"
         }
     },
