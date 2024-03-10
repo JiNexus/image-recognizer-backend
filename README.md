@@ -156,4 +156,18 @@ $ composer test
 Please note that the installer tests remove installed config files and templates
 before and after running the tests.
 
+## Docker Server
+
+Development
+
+```bash
+docker-compose -f .docker/development/docker-compose.yml up --build
+```
+
+Production
+
+```bash
+docker-compose -f .docker/production/docker-compose.yml up --build
+```
+
 Before contributing read [the contributing guide](https://github.com/mezzio/.github/blob/master/CONTRIBUTING.md).
