@@ -56,7 +56,8 @@
         "mezzio/mezzio": "^3.7",
         "mezzio/mezzio-fastroute": "^3.11.0",
         "mezzio/mezzio-helpers": "^5.7",
-        "mezzio/mezzio-twigrenderer": "^2.15"
+        "mezzio/mezzio-twigrenderer": "^2.15",
+        "ramsey/uuid-doctrine": "^2.0"
     },
     "require-dev": {
         "laminas/laminas-coding-standard": "~2.5.0",
