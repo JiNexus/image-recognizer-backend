@@ -1,8 +1,8 @@
 FROM php:8.2-apache
 
 # Install required packages
-RUN apt update \ 
-    && apt install -y git \ 
+RUN apt update \
+    && apt install -y git \
                       libfreetype6-dev \
                       libjpeg-dev \
                       libpng-dev \
@@ -36,13 +36,6 @@ RUN docker-php-ext-install bcmath \
     && docker-php-ext-install sysvshm \
     && docker-php-ext-install xsl \
     && docker-php-ext-install zip
-
-# Install the Tensor extension via PECL
-RUN pecl install tensor
-
-# Install Xdebug via PECL
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug
 
 # Enable Apache modules
 RUN a2enmod rewrite \

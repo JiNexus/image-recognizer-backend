@@ -1,0 +1,23 @@
+version: '3.9'
+
+networks:
+    recursive-network:
+
+services:
+    recursive-backend-production:
+        build:
+            context: ../../
+            dockerfile: .docker/production/Dockerfile.prod
+        container_name: recursive-backend
+        image: recursive-backend:production
+        ports:
+            - '8080:80'
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+        volumes:
+            - ../../:/var/www
+            - ../../.docker/production/php/conf.d/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini
+        environment:
+            - NODE_ENV=production
+        networks:
+            - recursive-network
