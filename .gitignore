@@ -3,6 +3,7 @@
 /.phpcs-cache
 /.phpunit
 /.phpunit.result.cache
+/.psalm-cache
 /.vagrant
 /.vscode
 /clover.xml
