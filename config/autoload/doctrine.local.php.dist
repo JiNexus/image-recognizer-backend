@@ -56,7 +56,7 @@ return [
         ],
         'fixtures' => [
             'orm_default' => [
-                'name' => 'JobSurreal Fixture',
+                'name' => 'Recursive Fixture',
                 'namespace' => 'App\Fixture',
                 'directory' => __DIR__ . '/../../src/App/src/Fixture',
             ],
