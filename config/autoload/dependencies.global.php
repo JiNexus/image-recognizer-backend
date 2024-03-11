@@ -2,6 +2,13 @@
 
 declare(strict_types=1);
 
+use Doctrine\Migrations\Configuration\Migration\ConfigurationLoader;
+use Doctrine\Migrations\DependencyFactory;
+use Doctrine\ORM\EntityManager;
+use Roave\PsrContainerDoctrine\EntityManagerFactory;
+use Roave\PsrContainerDoctrine\Migrations\ConfigurationLoaderFactory;
+use Roave\PsrContainerDoctrine\Migrations\DependencyFactoryFactory;
+
 return [
     // Provides application-wide services.
     // We recommend using fully-qualified class names whenever possible as
@@ -21,6 +28,9 @@ return [
         // Use 'factories' for services provided by callbacks/factory classes.
         'factories' => [
             // Fully\Qualified\ClassName::class => Fully\Qualified\FactoryName::class,
+            EntityManager::class   => EntityManagerFactory::class,
+            ConfigurationLoader::class => ConfigurationLoaderFactory::class,
+            DependencyFactory::class => DependencyFactoryFactory::class,
         ],
     ],
 ];
