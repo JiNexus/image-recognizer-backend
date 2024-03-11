@@ -156,6 +156,91 @@ $ composer test
 Please note that the installer tests remove installed config files and templates
 before and after running the tests.
 
+## Setting up the Database
+
+> Create the database for the project, database name should be `recursive`:
+> 
+> ```bash
+> $ CREATE DATABASE recursive CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+> ```
+>
+> Create the user with the designated password:
+> 
+> ```bash
+> $ CREATE USER 'recursive'@'localhost' IDENTIFIED BY '1234567';
+> ```
+>
+> Grant Privileges:
+> 
+> ```bash
+> $ GRANT ALL PRIVILEGES ON `recursive`.* TO 'recursive'@'localhost';
+> ```
+>
+> Flush Privileges:
+> 
+> ```bash
+> $ FLUSH PRIVILEGES;
+> ```
+>
+> Create all the tables: 
+> 
+> ```bash
+> $ php vendor/bin/doctrine-migrations migrations:migrate
+> ```
+> 
+> Populate your database:
+> ```bash
+> $ php ./vendor/bin/laminas data-fixtures:load
+> ```
+
+## Doctrine Commands
+This project is using a [Doctrine ORM](https://www.doctrine-project.org/projects/doctrine-orm/en/current/tutorials/getting-started.html) as a Data Mapper
+
+To list all available in Doctrine, run: 
+```bash
+$ php vendor/bin/doctrine
+```
+
+To validate the mapping files: 
+```bash
+$ php vendor/bin/doctrine orm:validate-schema
+```
+
+To see all the Doctrine Migrations available commands: 
+
+```bash
+$ php vendor/bin/doctrine-migrations
+```
+
+To generate a migration by comparing your current database to your mapping information: 
+
+```bash
+$ php vendor/bin/doctrine-migrations migrations:diff
+```
+
+To execute a migration to a specified version or the latest available version: 
+
+```bash
+$ php vendor/bin/doctrine-migrations migrations:migrate
+```
+
+## Additional Commands
+
+To list all available commands in [laminas-cli](https://docs.laminas.dev/laminas-cli/intro/#list), run:
+
+```bash
+$ php ./vendor/bin/laminas
+```
+To load data fixtures to your database: 
+
+```bash 
+$ php ./vendor/bin/laminas data-fixtures:load
+```
+
+## Setting up .env
+
+Rename the `.env.example` file to `.env` and add the necessary value in each variable
+
 ## Docker Server
 
 Development
