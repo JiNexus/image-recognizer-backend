@@ -1,0 +1,65 @@
+<?php
+
+declare(strict_types=1);
+
+use Doctrine\DBAL\Driver\PDO\MySQL\Driver;
+use Doctrine\ORM\Mapping\Driver\AttributeDriver;
+use Ramsey\Uuid\Doctrine\UuidType;
+
+return [
+    'doctrine' => [
+        'connection' => [
+            'orm_default' => [
+                'driver_class' => Driver::class,
+                'params' => [
+                    'host' => getenv('DATABASE_HOST'),
+                    'port' => 3306,
+                    'dbname' => getenv('DATABASE_NAME'),
+                    'user' => getenv('DATABASE_USER'),
+                    'password' => getenv('DATABASE_PASSWORD'),
+                    'charset' => 'utf8mb4',
+                    'driver' => 'pdo_mysql',
+                    'driverOptions' => [
+                        1002 => 'SET NAMES utf8mb4',
+                    ],
+                    'defaultTableOptions' => [
+                        'charset' => 'utf8mb4',
+                        'collate' => 'utf8mb4_unicode_ci',
+                    ],
+                ],
+                'doctrine_mapping_types' => [
+                    UuidType::NAME => UuidType::NAME,
+                ],
+            ],
+        ],
+        'driver' => [
+            'orm_default' => [
+                'cache' => 'array',
+                'class' => AttributeDriver::class,
+                'paths' => [
+                    __DIR__ . '/../../src/App/src/Entity',
+                ],
+            ],
+        ],
+        'types' => [
+            UuidType::NAME => UuidType::class,
+        ],
+        'migrations' => [
+            'orm_default' => [
+                'table_storage' => [
+                    'table_name' => 'migrations',
+                ],
+                'migrations_paths' => [
+                    'App\Migration' => 'src/App/src/Migration',
+                ],
+            ],
+        ],
+        'fixtures' => [
+            'orm_default' => [
+                'name' => 'JobSurreal Fixture',
+                'namespace' => 'App\Fixture',
+                'directory' => __DIR__ . '/../../src/App/src/Fixture',
+            ],
+        ],
+    ],
+];
