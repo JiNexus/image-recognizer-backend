@@ -16,5 +16,10 @@ use Dotenv\Dotenv;
         'DATABASE_NAME',
         'DATABASE_USER',
         'DATABASE_PASSWORD',
+        'UNSPLASH_APPLICATION_ID',
+        'UNSPLASH_ACCESS_KEY',
+        'UNSPLASH_SECRET_KEY',
+        'UNSPLASH_APPLICATION_NAME',
+        'UNSPLASH_DESCRIPTION',
     ])->notEmpty();
 })();
