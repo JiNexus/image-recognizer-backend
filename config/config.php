@@ -5,6 +5,12 @@ declare(strict_types=1);
 use Laminas\ConfigAggregator\ArrayProvider;
 use Laminas\ConfigAggregator\ConfigAggregator;
 use Laminas\ConfigAggregator\PhpFileProvider;
+use Mezzio\{Hal, Helper, Router, Tooling, Twig};
+use Mezzio\Router\FastRouteRouter;
+use Laminas\{Diactoros, HttpHandlerRunner};
+
+define('LOCAL_STORAGE_FIXTURE_CSV', getcwd() . '/data/fixture/csv/');
+define('LOCAL_STORAGE_IMAGE', getcwd() . '/public/asset/image/');
 
 require 'config/dotenv.php';
 
@@ -15,16 +21,17 @@ $cacheConfig = [
 ];
 
 $aggregator = new ConfigAggregator([
-    \Mezzio\Twig\ConfigProvider::class,
-    \Mezzio\Tooling\ConfigProvider::class,
-    \Mezzio\Router\FastRouteRouter\ConfigProvider::class,
-    \Laminas\HttpHandlerRunner\ConfigProvider::class,
+    Hal\ConfigProvider::class,
+    Twig\ConfigProvider::class,
+    Tooling\ConfigProvider::class,
+    FastRouteRouter\ConfigProvider::class,
+    HttpHandlerRunner\ConfigProvider::class,
     // Include cache configuration
     new ArrayProvider($cacheConfig),
-    \Mezzio\Helper\ConfigProvider::class,
-    \Mezzio\ConfigProvider::class,
-    \Mezzio\Router\ConfigProvider::class,
-    \Laminas\Diactoros\ConfigProvider::class,
+    Helper\ConfigProvider::class,
+    Mezzio\ConfigProvider::class,
+    Router\ConfigProvider::class,
+    Diactoros\ConfigProvider::class,
 
     // Swoole config to overwrite some services (if installed)
     // class_exists(\Mezzio\Swoole\ConfigProvider::class)
@@ -32,6 +39,9 @@ $aggregator = new ConfigAggregator([
     //     : function (): array {
     //         return [];
     //     },
+
+    // Default Api module config
+    Api\ConfigProvider::class,
 
     // Default App module config
     App\ConfigProvider::class,
