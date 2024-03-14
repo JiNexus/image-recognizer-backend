@@ -38,7 +38,7 @@ class ImageImageLabel
         $this->exchangeArray($data);
     }
 
-        /**
+    /**
      * @param array $data
      * @return void
      */
@@ -76,7 +76,7 @@ class ImageImageLabel
         return $this;
     }
 
-        /**
+    /**
      * @return Image
      */
     public function getImage(): Image

@@ -22,11 +22,17 @@ class Image
     #[ORM\GeneratedValue(strategy: 'NONE')]
     private UuidInterface $id;
 
-    #[ORM\Column(name: 'name', type: Types::STRING, length: 255)]
-    private string $name;
+    #[ORM\Column(name: 'filename', type: Types::STRING, length: 255)]
+    private string $filename;
 
-    #[ORM\Column(name: 'file_type', type: Types::STRING, length: 255)]
-    private string $fileType;
+    #[ORM\Column(name: 'file_extension', type: Types::STRING, length: 255)]
+    private string $fileExtension;
+
+    #[ORM\Column(name: 'slug', type: Types::STRING, length: 255)]
+    private string $slug;
+
+    #[ORM\Column(name: 'description', type: Types::TEXT, nullable: true)]
+    private ?string $description;
 
     /**
      * @param array $data
@@ -43,8 +49,10 @@ class Image
     public function exchangeArray(array $data = []): void
     {
         ! empty($data['id']) ? $this->setId($data['id']) : $this->setId();
-        ! empty($data['name']) ? $this->setName($data['name']) : $this->setName();
-        ! empty($data['fileType']) ? $this->setFileType($data['fileType']) : $this->setFileType();
+        ! empty($data['filename']) ? $this->setFilename($data['filename']) : $this->setFilename();
+        ! empty($data['fileExtension']) ? $this->setFileExtension($data['fileExtension']) : $this->setFileExtension();
+        ! empty($data['slug']) ? $this->setSlug($data['slug']) : $this->setSlug();
+        ! empty($data['description']) ? $this->setDescription($data['description']) : $this->setDescription();
     }
 
     /**
@@ -55,7 +63,7 @@ class Image
         return get_object_vars($this);
     }
 
-        /**
+    /**
      * @return UuidInterface
      */
     public function getId(): UuidInterface
@@ -77,18 +85,18 @@ class Image
     /**
      * @return string
      */
-    public function getName(): string
+    public function getFilename(): string
     {
-        return $this->name;
+        return $this->filename;
     }
 
     /**
-     * @param string $name
+     * @param string $filename
      * @return $this
      */
-    public function setName(string $name = ''): self
+    public function setFilename(string $filename = ''): self
     {
-        $this->name = $name;
+        $this->filename = $filename;
 
         return $this;
     }
@@ -96,18 +104,56 @@ class Image
     /**
      * @return string
      */
-    public function getFileType(): string
+    public function getFileExtension(): string
     {
-        return $this->fileType;
+        return $this->fileExtension;
     }
 
     /**
-     * @param string $fileType
+     * @param string $fileExtension
      * @return $this
      */
-    public function setFileType(string $fileType = ''): self
+    public function setFileExtension(string $fileExtension = ''): self
     {
-        $this->fileType = $fileType;
+        $this->fileExtension = $fileExtension;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     * @return $this
+     */
+    public function setSlug(string $slug = ''): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string|null $description
+     * @return $this
+     */
+    public function setDescription(?string $description = null): self
+    {
+        $this->description = $description;
 
         return $this;
     }
