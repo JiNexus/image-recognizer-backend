@@ -21,6 +21,7 @@ class ConfigProvider
     {
         return [
             'dependencies' => $this->getDependencies(),
+            'laminas-cli' => $this->getLaminasCli(),
             'templates'    => $this->getTemplates(),
         ];
     }
@@ -35,7 +36,29 @@ class ConfigProvider
                 Handler\PingHandler::class => Handler\PingHandler::class,
             ],
             'factories'  => [
+                Command\FixtureCommand::class => Command\Factory\FixtureCommandFactory::class,
+                Command\ImportImageCommand::class => Command\Factory\ImportImageCommandFactory::class,
                 Handler\HomePageHandler::class => Handler\Factory\HomePageHandlerFactory::class,
+                Manager\ImageManager::class => Manager\Factory\ImageManagerFactory::class,
+                Manager\ImageLabelManager::class => Manager\Factory\ImageLabelManagerFactory::class,
+                Manager\ImageImageLabelManager::class => Manager\Factory\ImageImageLabelManagerFactory::class,
+                Repository\ImageRepository::class => Repository\Factory\ImageRepositoryFactory::class,
+                Repository\ImageLabelRepository::class => Repository\Factory\ImageLabelRepositoryFactory::class,
+                Repository\ImageImageLabelRepository::class => Repository\Factory\ImageImageLabelRepositoryFactory::class,
+                Service\Unsplash\UnsplashService::class => Service\Unsplash\Factory\UnsplashServiceFactory::class,
+            ],
+        ];
+    }
+
+    /**
+     * @return array[]
+     */
+    public function getLaminasCli(): array
+    {
+        return [
+            'commands' => [
+                'data-fixtures:load' => Command\FixtureCommand::class,
+                'data-image-import:load' => Command\ImportImageCommand::class,
             ],
         ];
     }
