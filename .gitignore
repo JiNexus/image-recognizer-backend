@@ -2,6 +2,7 @@
 /.idea
 /.phpcs-cache
 /.phpunit
+/.phpunit.cache
 /.phpunit.result.cache
 /.psalm-cache
 /.vagrant
