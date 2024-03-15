@@ -56,8 +56,8 @@ final class ImageLabelRepository implements ObjectRepository
         $query = $queryBuilder->select('
                     il.id AS il_id,
                     il.name AS il_name,
-                    il.createdAt AS il_created_at,
-                    il.updatedAt AS il_updated_at
+                    il.createdAt AS il_createdAt,
+                    il.updatedAt AS il_updatedAt
                 ')
             ->leftJoin(ImageImageLabel::class, 'iil', Join::WITH, 'il.id = iil.imageLabel')
             ->where('iil.image IS NULL')
