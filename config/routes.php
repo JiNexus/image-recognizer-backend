@@ -40,4 +40,10 @@ use Psr\Container\ContainerInterface;
 return static function (Application $app, MiddlewareFactory $factory, ContainerInterface $container): void {
     $app->get('/', App\Handler\HomePageHandler::class, 'home');
     $app->get('/api/ping', App\Handler\PingHandler::class, 'api.ping');
+    $app->get('/api/image-related', Api\Handler\ListImageRelatedHandler::class, 'api.list-image-related');
+    $app->get(
+        '/api/image-related/{id:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}}',
+        Api\Handler\ImageRelatedHandler::class,
+        'api.image-related'
+    );
 };
