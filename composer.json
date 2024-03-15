@@ -55,6 +55,8 @@
         "laminas/laminas-component-installer": "^2.6 || ^3.0",
         "laminas/laminas-config-aggregator": "^1.6",
         "laminas/laminas-diactoros": "^3.0.0",
+        "laminas/laminas-hydrator": "^4.15",
+        "laminas/laminas-paginator": "^2.18",
         "laminas/laminas-servicemanager": "^3.22",
         "laminas/laminas-stdlib": "^3.6",
         "league/flysystem": "^3.0",
