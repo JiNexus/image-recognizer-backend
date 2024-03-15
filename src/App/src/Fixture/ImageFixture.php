@@ -34,7 +34,7 @@ class ImageFixture extends AbstractFixture implements DependentFixtureInterface
             $imageLabel = new Image([
                 'id' => Uuid::fromString($value[array_search('id', $header)]),
                 'filename' => $value[array_search('filename', $header)],
-                'file_extension' => $value[array_search('file_extension', $header)],
+                'fileExtension' => $value[array_search('file_extension', $header)],
                 'slug' => $value[array_search('slug', $header)],
                 'description' => $value[array_search('description', $header)],
                 'createdAt' => new DateTime($value[array_search('created_at', $header)]),
