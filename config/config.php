@@ -7,7 +7,7 @@ use Laminas\ConfigAggregator\ConfigAggregator;
 use Laminas\ConfigAggregator\PhpFileProvider;
 use Mezzio\{Hal, Helper, Router, Tooling, Twig};
 use Mezzio\Router\FastRouteRouter;
-use Laminas\{Diactoros, HttpHandlerRunner};
+use Laminas\{Diactoros, HttpHandlerRunner, Hydrator, Paginator};
 
 define('LOCAL_STORAGE_FIXTURE_CSV', getcwd() . '/data/fixture/csv/');
 define('LOCAL_STORAGE_IMAGE', getcwd() . '/public/asset/image/');
@@ -21,6 +21,8 @@ $cacheConfig = [
 ];
 
 $aggregator = new ConfigAggregator([
+    Paginator\ConfigProvider::class,
+    Hydrator\ConfigProvider::class,
     Hal\ConfigProvider::class,
     Twig\ConfigProvider::class,
     Tooling\ConfigProvider::class,
