@@ -34,6 +34,7 @@ class ConfigProvider
         return [
             'invokables' => [
                 Handler\PingHandler::class => Handler\PingHandler::class,
+                Metadata\ImageMetadata::class => Metadata\ImageMetadata::class,
             ],
             'factories'  => [
                 Command\FixtureCommand::class => Command\Factory\FixtureCommandFactory::class,
