@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Laminas\ConfigAggregator\ArrayProvider;
 use Laminas\ConfigAggregator\ConfigAggregator;
 use Laminas\ConfigAggregator\PhpFileProvider;
-use Mezzio\{Hal, Helper, Router, Tooling, Twig};
+use Mezzio\{Cors, Hal, Helper, Router, Tooling, Twig};
 use Mezzio\Router\FastRouteRouter;
 use Laminas\{Diactoros, HttpHandlerRunner, Hydrator, Paginator};
 
@@ -21,6 +21,7 @@ $cacheConfig = [
 ];
 
 $aggregator = new ConfigAggregator([
+    Cors\ConfigProvider::class,
     Paginator\ConfigProvider::class,
     Hydrator\ConfigProvider::class,
     Hal\ConfigProvider::class,

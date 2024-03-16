@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "606908443300680ed35b9b8be78d3285",
+    "content-hash": "f27d9c240a90e3581851a95938f3b3e0",
     "packages": [
         {
             "name": "brick/math",
@@ -3207,6 +3207,76 @@
                 }
             ],
             "time": "2024-02-14T10:42:11+00:00"
+        },
+        {
+            "name": "mezzio/mezzio-cors",
+            "version": "1.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mezzio/mezzio-cors.git",
+                "reference": "3d3d0fb35b29c051bfc97ff756c84ed719bcbb8b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mezzio/mezzio-cors/zipball/3d3d0fb35b29c051bfc97ff756c84ed719bcbb8b",
+                "reference": "3d3d0fb35b29c051bfc97ff756c84ed719bcbb8b",
+                "shasum": ""
+            },
+            "require": {
+                "fig/http-message-util": "^1.1",
+                "mezzio/mezzio-router": "^3.1",
+                "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
+                "psr/container": "^1.0 || ^2.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0 || ^2.0",
+                "psr/http-server-handler": "^1.0",
+                "psr/http-server-middleware": "^1.0",
+                "webmozart/assert": "^1.11.0"
+            },
+            "require-dev": {
+                "laminas/laminas-coding-standard": "~2.5.0",
+                "laminas/laminas-diactoros": "^3.3.1",
+                "phpunit/phpunit": "^10.5.11",
+                "psalm/plugin-phpunit": "^0.18.4",
+                "vimeo/psalm": "^5.22.2"
+            },
+            "type": "library",
+            "extra": {
+                "laminas": {
+                    "config-provider": "Mezzio\\Cors\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mezzio\\Cors\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "CORS component for Mezzio and other PSR-15 middleware runners.",
+            "keywords": [
+                "cors",
+                "mezzio",
+                "psr-15",
+                "psr-7"
+            ],
+            "support": {
+                "chat": "https://laminas.dev/chat",
+                "docs": "https://docs.laminas.dev/mezzio-cors/",
+                "forum": "https://discourse.laminas.dev",
+                "issues": "https://github.com/mezzio/mezzio-cors/issues",
+                "rss": "https://github.com/mezzio/mezzio-cli/releases.atom",
+                "source": "https://github.com/mezzio/mezzio-cors"
+            },
+            "funding": [
+                {
+                    "url": "https://funding.communitybridge.org/projects/laminas-project",
+                    "type": "community_bridge"
+                }
+            ],
+            "time": "2024-03-01T22:26:55+00:00"
         },
         {
             "name": "mezzio/mezzio-fastroute",

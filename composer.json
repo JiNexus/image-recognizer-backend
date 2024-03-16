@@ -61,6 +61,7 @@
         "laminas/laminas-stdlib": "^3.6",
         "league/flysystem": "^3.0",
         "mezzio/mezzio": "^3.7",
+        "mezzio/mezzio-cors": "^1.12",
         "mezzio/mezzio-fastroute": "^3.11.0",
         "mezzio/mezzio-hal": "^2.9",
         "mezzio/mezzio-helpers": "^5.7",
