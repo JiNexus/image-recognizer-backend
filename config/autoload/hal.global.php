@@ -21,7 +21,7 @@ return [
         [
             '__class__' => RouteBasedCollectionMetadata::class,
             'collection_class' => ImageCollection::class,
-            'collection_relation' => 'list-image-related',
+            'collection_relation' => 'images',
             'route' => 'api.list-image-related',
         ],
     ],
