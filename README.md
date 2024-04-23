@@ -1,4 +1,4 @@
-# Recursive Backend - Image Recognizer
+# Image Recognizer - Backend
 
 *A Birth Is Built Not Born*
 
@@ -16,7 +16,7 @@ that extend the functionality of existing applications.
 Start your new JobSurreal API project with a Git Clone:
 
 ```bash
-$ git clone https://github.com/JiNexus/recursive-backend.git.
+$ git clone https://github.com/JiNexus/image-recognizer-backend.git.
 ```
 
 Run composer to install the needed packages:
@@ -141,22 +141,22 @@ local `$cacheConfig` variable.
 
 ## Setting up the Database
 
-> Create the database for the project, database name should be `recursive`:
+> Create the database for the project, database name should be `image_recognizer`:
 > 
 > ```bash
-> $ CREATE DATABASE `recursive` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+> $ CREATE DATABASE `image_recognizer` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 > ```
 >
 > Create the user with the designated password:
 > 
 > ```bash
-> $ CREATE USER 'recursive'@'localhost' IDENTIFIED BY '1234567';
+> $ CREATE USER 'image_recognizer'@'localhost' IDENTIFIED BY '1234567';
 > ```
 >
 > Grant Privileges:
 > 
 > ```bash
-> $ GRANT ALL PRIVILEGES ON `recursive`.* TO 'recursive'@'localhost';
+> $ GRANT ALL PRIVILEGES ON `image_recognizer`.* TO 'image_recognizer'@'localhost';
 > ```
 >
 > Flush Privileges:
