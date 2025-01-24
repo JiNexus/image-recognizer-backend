@@ -13,7 +13,7 @@ that extend the functionality of existing applications.
 
 ## Getting Started
 
-Start your new JobSurreal API project with a Git Clone:
+Start your new project with a Git Clone:
 
 ```bash
 $ git clone https://github.com/JiNexus/image-recognizer-backend.git.
